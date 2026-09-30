@@ -99,14 +99,17 @@ class App(tk.Tk):
         )
         self.label_resultado.pack(anchor="w")
 
+    def _ler_formulario(self) -> Deslocamento:
+        distancia = float(self.entrada_distancia.get().replace(",", "."))
+        dias = int(self.entrada_dias.get())
+        transporte = TRANSPORTES_LABELS[self.combo_transporte.get()]
+        return Deslocamento(
+            distancia_km=distancia, transporte=transporte, dias_por_semana=dias
+        )
+
     def calcular(self):
         try:
-            distancia = float(self.entrada_distancia.get().replace(",", "."))
-            dias = int(self.entrada_dias.get())
-            transporte = TRANSPORTES_LABELS[self.combo_transporte.get()]
-            deslocamento = Deslocamento(
-                distancia_km=distancia, transporte=transporte, dias_por_semana=dias
-            )
+            deslocamento = self._ler_formulario()
             resultado = gerar_resultado(deslocamento)
             texto = (
                 f"Emissão diária: {resultado.emissao_diaria_kg} kg de CO₂\n"
