@@ -51,6 +51,11 @@ src/co2calc/
 tests/ # testes unitários (pytest)
 docs/ # fontes dos fatores de 
 
+## Metodologia TDD
+
+Os testes unitários (`tests/test_core.py`) foram escritos antes da implementação da lógica de cálculo (`src/co2calc/core.py`), seguindo o ciclo vermelho-verde-refatoração. O histórico de commits comprova essa ordem:
+1. `test: adiciona testes de calculo de emissao e conversao em arvores`
+2. `feat: implementa calculo de emissao anual e conversao em arvores`
 
 ## Fluxo de branches
 
