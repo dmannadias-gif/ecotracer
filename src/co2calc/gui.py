@@ -35,16 +35,29 @@ class App(tk.Tk):
     def _montar_estilo(self):
         style = ttk.Style(self)
         style.theme_use("clam")
-        style.configure("TLabel", background=CORES["fundo"], foreground=CORES["texto"], font=("Segoe UI", 10))
-        style.configure("Titulo.TLabel", font=("Segoe UI", 16, "bold"), foreground=CORES["primaria_escura"])
+        style.configure(
+            "TLabel",
+            background=CORES["fundo"],
+            foreground=CORES["texto"],
+            font=("Segoe UI", 10),
+        )
+        style.configure(
+            "Titulo.TLabel",
+            font=("Segoe UI", 16, "bold"),
+            foreground=CORES["primaria_escura"],
+        )
         style.configure("TButton", font=("Segoe UI", 10, "bold"), padding=8)
 
     def _montar_layout(self):
         container = tk.Frame(self, bg=CORES["fundo"], padx=24, pady=24)
         container.pack(fill="both", expand=True)
 
-        ttk.Label(container, text="🌳 EcoTracer", style="Titulo.TLabel").pack(pady=(0, 4))
-        ttk.Label(container, text="ODS 13 — Ação Contra a Mudança Global do Clima").pack(pady=(0, 16))
+        ttk.Label(container, text="🌳 EcoTracer", style="Titulo.TLabel").pack(
+            pady=(0, 4)
+        )
+        ttk.Label(
+            container, text="ODS 13 — Ação Contra a Mudança Global do Clima"
+        ).pack(pady=(0, 16))
 
         ttk.Label(container, text="Distância diária (km)").pack(anchor="w")
         self.entrada_distancia = ttk.Entry(container)
@@ -61,19 +74,28 @@ class App(tk.Tk):
         self.entrada_dias = ttk.Entry(container)
         self.entrada_dias.pack(fill="x", pady=(0, 20))
 
-        ttk.Button(container, text="Calcular", command=self.calcular).pack(fill="x", pady=(0, 20))
+        ttk.Button(container, text="Calcular", command=self.calcular).pack(
+            fill="x", pady=(0, 20)
+        )
 
         self.card_resultado = tk.Frame(
-            container, bg=CORES["card"], padx=16, pady=16,
-            highlightbackground=CORES["primaria"], highlightthickness=1
+            container,
+            bg=CORES["card"],
+            padx=16,
+            pady=16,
+            highlightbackground=CORES["primaria"],
+            highlightthickness=1,
         )
         self.card_resultado.pack(fill="both", expand=True)
 
         self.label_resultado = tk.Label(
             self.card_resultado,
             text="Preencha os dados e clique em Calcular.",
-            bg=CORES["card"], fg=CORES["texto"],
-            font=("Segoe UI", 10), justify="left", wraplength=340,
+            bg=CORES["card"],
+            fg=CORES["texto"],
+            font=("Segoe UI", 10),
+            justify="left",
+            wraplength=340,
         )
         self.label_resultado.pack(anchor="w")
 
@@ -82,7 +104,9 @@ class App(tk.Tk):
             distancia = float(self.entrada_distancia.get().replace(",", "."))
             dias = int(self.entrada_dias.get())
             transporte = TRANSPORTES_LABELS[self.combo_transporte.get()]
-            deslocamento = Deslocamento(distancia_km=distancia, transporte=transporte, dias_por_semana=dias)
+            deslocamento = Deslocamento(
+                distancia_km=distancia, transporte=transporte, dias_por_semana=dias
+            )
             resultado = gerar_resultado(deslocamento)
             texto = (
                 f"Emissão diária: {resultado.emissao_diaria_kg} kg de CO₂\n"
@@ -91,7 +115,9 @@ class App(tk.Tk):
             )
             self.label_resultado.config(text=texto, fg=CORES["primaria_escura"])
         except ValueError:
-            messagebox.showerror("Erro", "Digite números válidos para distância e dias.")
+            messagebox.showerror(
+                "Erro", "Digite números válidos para distância e dias."
+            )
         except EntradaInvalidaError as e:
             messagebox.showerror("Erro nos dados", str(e))
         except Exception as e:
