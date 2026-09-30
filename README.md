@@ -61,7 +61,7 @@ Os testes unitários (`tests/test_core.py`) foram escritos antes da implementaç
 
 Este repositório segue o padrão Git Flow: `main` (estável), `develop` (integração) e branches `feature/<nome>` por funcionalidade/pessoa.
 
-## Integrante
+## Integrantes
 
 - Anna Vitória Rocha Dias - RA: 325118421
 - Karolyne Silva - RA: 32517941
