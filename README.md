@@ -1,6 +1,6 @@
 # co2-calculator
 
-# # EcoTracer 🚗🌳
+# EcoTracer 🚗🌳
 Calculadora de emissão de CO₂ e conversão em árvores equivalentes.
 
 Calcula a emissão de CO₂ gerada pelo deslocamento diário de uma pessoa e converte o total anual em número equivalente de árvores necessárias para compensar essa emissão.
