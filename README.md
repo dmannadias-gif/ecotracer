@@ -1,6 +1,7 @@
 # co2-calculator
 
-# Calculadora de Emissão de CO₂ 🚗🌳
+# # EcoTracer 🚗🌳
+Calculadora de emissão de CO₂ e conversão em árvores equivalentes.
 
 Calcula a emissão de CO₂ gerada pelo deslocamento diário de uma pessoa e converte o total anual em número equivalente de árvores necessárias para compensar essa emissão.
 
@@ -26,7 +27,7 @@ Fatores de emissão e fontes detalhadas em [`docs/fatores-emissao.md`](docs/fato
 ## Como instalar e rodar
 
 ```bash
-git clone https://github.com/dmannadias-gif/co2-calculator.git
+git clone https://github.com/dmannadias-gif/ecotracer.git
 cd co2-calculator
 python -m venv venv
 venv\Scripts\activate          # Windows
